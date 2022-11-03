@@ -16,12 +16,18 @@ class AdDisplayCubit extends Cubit<AdDisplayState> {
     );
 
     final BannerAd banner = BannerAd(
-      adUnitId: "ca-app-pub-3940256099942544/6300978111",
+      adUnitId: "ca-app-pub-3940256099942544/6300978111", // Test adUnitId
       size: inlineAdaptiveAdSize,
       request: const AdManagerAdRequest(
         extras: {
-          "keywords": "[firstKeyword, secondKeywods]",
+          "keywords":
+              "[firstKeyword, secondKeywods]", //Example of how you would send some extra data
+          "otherData": "otherStuff",
         },
+        keywords: [
+          'firstKeyword',
+          'secondKeyword'
+        ], //Does not work in my experience
       ),
       listener: BannerAdListener(
         onAdFailedToLoad: (Ad ad, LoadAdError error) {

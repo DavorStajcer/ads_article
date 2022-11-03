@@ -32,17 +32,15 @@ class _AdsInListState extends State<AdsInList>
 
   @override
   void dispose() {
-    log('disposing ${widget.index}');
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return BlocBuilder<AdDisplayCubit, AdDisplayState>(
       bloc: _adDisplayCubit,
       builder: (context, adDisplayState) {
-        log('Ad builder index ${widget.index}, adDisplayState $adDisplayState');
-
         if (adDisplayState is AddNotLoaded) {
           return const SizedBox();
         }
